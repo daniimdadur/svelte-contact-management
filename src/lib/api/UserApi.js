@@ -1,7 +1,7 @@
 import {PUBLIC_URL_API} from "$env/static/public";
 
 export const userRegister = async ({username, password, name}) => {
-    return fetch(`${PUBLIC_URL_API}/users`, {
+    return await fetch(`${PUBLIC_URL_API}/users`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ export const userRegister = async ({username, password, name}) => {
 }
 
 export const userLogin = async ({username, password}) => {
-    return fetch(`${PUBLIC_URL_API}/users/login`, {
+    return await fetch(`${PUBLIC_URL_API}/users/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export const userLogin = async ({username, password}) => {
 }
 
 export const userDetail = async (token) => {
-    return fetch(`${PUBLIC_URL_API}/users/current`, {
+    return await fetch(`${PUBLIC_URL_API}/users/current`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export const userDetail = async (token) => {
 }
 
 export const userUpdateName = async (token, {name}) => {
-    return fetch(`${PUBLIC_URL_API}/users/current`, {
+    return await fetch(`${PUBLIC_URL_API}/users/current`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export const userUpdateName = async (token, {name}) => {
 }
 
 export const userUpdatePassword = async (token, {password}) => {
-    return fetch(`${PUBLIC_URL_API}/users/current`, {
+    return await fetch(`${PUBLIC_URL_API}/users/current`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ export const userUpdatePassword = async (token, {password}) => {
 }
 
 export const userLogout = async (token) => {
-    return fetch(`${PUBLIC_URL_API}/users/logout`, {
+    return await fetch(`${PUBLIC_URL_API}/users/logout`, {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
