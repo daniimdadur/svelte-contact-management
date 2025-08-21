@@ -1,5 +1,18 @@
 <script>
+    import {goto} from "$app/navigation";
+    import {onMount} from "svelte";
+
     const {children} = $props();
+    async function validateToken() {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            await goto('/login');
+        }
+    }
+
+    onMount(async () => {
+        await validateToken();
+    });
 </script>
 
 <div class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen flex flex-col">
